@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .content {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-download {
+            background-color: #008CBA; /* Blue */
+        }
+        .btn-download:hover {
+            background-color: #007B9A;
+        }
+        .btn-home {
+            background-color: #4CAF50; /* Green */
+        }
+        .btn-home:hover {
+            background-color: #3F8F40;
+        }
+    </style>
+</head>
+<body>
+    {% extends "base.html" %}
+{% block content %}
+<div class="module-content">
+    <h1>Module Content</h1>
+    <div class="content">
+        {{ content|safe }}
+        <a href="?download" class="btn btn-download">Download as PDF</a>
+    </div>
+    <a href="{{ url_for('app1') }}" class="btn btn-home">Home Page</a>
+</div>
+{% endblock %}
+</body>
+</html>

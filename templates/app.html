@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI-Powered Education Platform</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <ul>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('dashboard') }}">User Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('signup')}}">Sign Up</a></li>
+                {% endif %}
+                <li><a href="#content-recommendation">Content Recommendation</a></li>
+                <li><a href="#lesson-generation">Lesson Generation</a></li>
+                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="#learning-analytics">Learning Analytics</a></li>
+                <li><a href="#user-interaction">User Interaction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="user-profile">
+            <!-- User profile  -->
+            <h2>Dashboard</h2>
+            <div class="profile-card">
+                <h2>{{ user.username }}</h2>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                {% if user.date_joined %}
+                    <p>Date Joined: {{ user.date_joined.strftime('%Y-%m-%d') }}</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section id="user-input">
+            <form action="{{ url_for('course') }}" method="post">
+                <label for="course_name">Enter the course you want to learn:</label>
+                <input type="text" id="course_name" name="course_name" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section id="content-recommendation">
+            <!-- Content recommendation  -->
+            <h2>Recommended Content</h2>
+            <div class="content-cards-container">
+                <div class="content-card">
+                    <img src="{{ url_for('static', filename='content1.jpg') }}" alt="Content image">
+                    <h3>Introduction to Artificial Intelligence</h3>
+                    <p>Explore the fundamentals of Artificial Intelligence (AI), covering topics such as machine learning, neural networks, and real-world applications. This introductory course is designed for beginners and provides a solid foundation for understanding the exciting field of AI.</p>
+                    <a href="{{ url_for('r_course', course_name='Introduction to Artificial Intelligence') }}">Learn More</a>
+                </div>
+                <div class="content-card">
+                    <img src="{{ url_for('static', filename='content2.png') }}" alt="Content image">
+                    <h3>Mastering JavaScript: Advanced Concepts</h3>
+                    <p>Take your JavaScript skills to the next level with this advanced course. Dive into topics like asynchronous programming, closures, and design patterns. Ideal for intermediate developers looking to enhance their proficiency in building robust and efficient web applications.</p>
+                    <a href="{{ url_for('r_course', course_name='Mastering JavaScript: Advanced Concepts') }}">Learn More</a>
+                </div>
+                <div class="content-card">
+                    <img src="{{ url_for('static', filename='content3.jpg') }}" alt="Content image">
+                    <h3>The Science of Climate Change</h3>
+                    <p> Understand the science behind climate change in this comprehensive course. Learn about the impact of human activities, the role of ecosystems, and potential solutions. Stay informed and contribute to the global conversation on environmental sustainability.</p>
+                    <a href="{{ url_for('r_course', course_name='The Science of Climate Change') }}">Learn More</a>
+                </div>
+                <div class="content-card">
+                    <img src="{{ url_for('static', filename='content4.jpg') }}" alt="Content image">
+                    <h3>Photography Basics: Capturing Stunning Moments</h3>
+                    <p>Whether you're a beginner or an aspiring photographer, this course covers the essentials of photography. Explore camera settings, composition techniques, and post-processing tips to capture and enhance your most memorable moments.</p>
+                    <a href="{{ url_for('r_course', course_name='Photography Basics: Capturing Stunning Moments') }}">Learn More</a>
+                </div>
+                {% for course in recommended_courses %}
+                    <div class="content-card">
+                        <h3 id="course-heading">{{ course.description | safe }}</h3>
+                        <a href="{{ url_for('r_course', course_name=course.name) }}">Start Lesson</a>
+                    </div>
+                {% else %}
+                    <p>No recommended courses.</p>
+                {% endfor %}
+            </div>
+        </section> 
+
+        <section id="lesson-generation">
+            <h2>Generated Lessons</h2>
+            <div class="lesson-cards-container">
+                {% for course in saved_courses %}
+                    <div class="lesson-card">
+                        <h3>{{ course.course_name }}</h3>
+                        <p>Description for {{ course.course_name }} course.</p>
+                        <a href="{{ url_for('saved_course', course_name=course.course_name) }}">Start Lesson</a>
+                    </div>
+                {% else %}
+                        <p>No saved courses.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="assessments">
+            <h2>Assessments</h2>
+            <p>Our platform uses AI to create dynamic and personalized assessments that adapt to your learning pace and style. Here's what you can expect:</p>
+            <div id="assessment-cards-container">
+                <div class="assessment-card">
+                    <h3>Dynamic Quizzes and Tests</h3>
+                    <p>Our quizzes adjust their difficulty based on your past performance, ensuring you're always challenged at the right level.</p>
+                    <a href="{{ url_for('quiz_interface')}}">Start Quiz</a>
+                </div>
+                <div class="assessment-card">
+                    <h3>Instant Feedback</h3>
+                    <p>Get instant feedback on your assessments, with clear explanations and suggestions for improvement.</p>
+                    <a href="#">View Feedback</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning-analytics">
+            <!-- Learning analytics related content goes here -->
+        </section>
+
+        <section id="user-interaction">
+            <!-- User interaction related content goes here -->
+        </section>
+
+    </main>
+
+        <!-- Footer content goes here -->
+        <footer>
+            <!-- Footer content goes here -->
+            <div id="footer-container">
+                <p>&copy; 2024 AI Learning Platform. All rights reserved.</p>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('about')}}">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+
+</body>
+</html>

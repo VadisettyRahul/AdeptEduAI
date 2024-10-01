@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='quiz.css')}}" />
+    <title>Quiz Questions</title>
+  </head>
+  <body>
+    <div class="quiz">
+      <div class="questions">
+        <h1>{{ quiz_content.language }}</h1>
+          <form action="http://localhost:5000/quiz" method="GET" class="question">
+          {% for question in quiz_content.questions %}
+          <div class="question">
+            <p>{{loop.index}}. {{ question.question }}</p>
+            {% set question_number = loop.index %} {% for choice in
+            question.choices %}
+            <div class="choices">
+              <input
+                type="radio"
+                name="question_{{ question_number }}"
+                value="{{ choice }}"
+                id="{{choice}}"
+              />
+              <label for="{{choice}}">{{choice}}</label>
+            </div>
+            {% endfor %}
+            <!-- <div>The answer is "{{ question.answer }}"</div> -->
+          </div>
+          {% endfor %}
+          
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

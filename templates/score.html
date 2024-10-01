@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='score.css')}}" />
+    <title>Score Card</title>
+  </head>
+  <body>
+    <div class="scorecard">
+      <div class="scores">
+        <p class="score">{{score}}</p>
+        <div class="answers">
+          <div class="correct">
+            <h3>The correct answers are</h3>
+            {% for answer in actual_answers %}
+            <p>{{ loop.index }}. {{answer}}</p>
+            {% endfor %}
+          </div>
+          <div class="your">
+            <h3>Your submissions</h3>
+            {% for answer in given_answers %}
+            <p>{{ loop.index }}. {{answer}}</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="buttons">
+          <a href="{{ url_for('app1') }}" class="btn">Home</a>
+          <a href="{{ url_for('quiz_interface') }}" class="btn">Take Another Quiz</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

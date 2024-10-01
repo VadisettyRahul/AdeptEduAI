@@ -1,0 +1,296 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header, footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.profile-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.profile-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#user-profile {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.profile-card h2 {
+    color: #333;
+    font-size: 18px;
+}
+
+.profile-card p {
+    color: #777;
+    padding: 0 2px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.content-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.content-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+.content-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.content-card img {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* This will crop the image if it's not a square */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+.content-card h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+.content-card p {
+    color: #777;
+    padding: 0 2px;
+}
+
+.content-card a {
+    color: #4CAF50;
+    text-decoration: none;
+    align-self: flex-end;
+}
+
+.lesson-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    display: flex; /* Make this a flex container */
+    flex-direction: column; /* Stack the items vertically */
+    justify-content: space-between; /* Distribute space evenly between the items */
+}
+
+.lesson-card h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+.lesson-card p {
+    color: #777;
+    padding: 0 2px;
+}
+
+.lesson-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.lesson-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.lesson-card a {
+    color: #4CAF50;
+    text-decoration: none;
+    align-self: flex-end; /* Align the button to the end of the flex container */
+}
+
+#content-recommendation h2, #lesson-generation h2, #assessments h2, #user-profile h2{
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2em; 
+    font-weight: bold; 
+    margin-bottom: 20px;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+#assessments {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+#assessment-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.assessment-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    flex: 1 0 30%;
+    margin: 10px;
+    display: flex; /* Make this a flex container */
+    flex-direction: column; /* Stack the items vertically */
+    justify-content: space-between; /* Distribute space evenly between the items */
+}
+
+.assessment-card a {
+    /* existing styles... */
+    align-self: flex-end; /* Align the button to the end of the flex container */
+}
+
+.assessment-card h3 {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.assessment-card p {
+    color: #666;
+}
+
+.assessment-card a {
+    display: inline-block;
+    color: #fff;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.assessment-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    transition: transform 0.3s ease-in-out; /* Animate the transformation */
+}
+
+#assessments > p {
+    color: #333; /* Dark text color */
+    font-size: 1.2em; /* Slightly larger font size */
+    line-height: 1.6; /* Increase the line height for readability */
+    margin-bottom: 20px; /* Add some space below the paragraph */
+}
+
+#lesson-generation, #content-recommendation {
+    background-color: #f9f9f9; /* Light grey background */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px 0; /* Add some margin top and bottom */
+}
+
+footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 20px; /* Add some padding */
+    text-align: center; /* Center the text */
+    border-radius: 10px; /* Rounded corners */;
+}
+
+footer a {
+    color: #fff; /* White text color for the links */
+    text-decoration: none; /* Remove underline from the links */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Add underline to the links when hovered over */
+}
+
+#user-input {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#user-input form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#user-input label {
+    font-weight: bold;
+}
+
+#user-input input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#user-input input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+#user-input input[type="submit"]:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Overview</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='course-styles.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('app1') }}">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="course">
+    {% extends "base.html" %}
+      {% block content %}
+      <h1>{{ course_name }}</h1>
+      {{ completions.approach|safe}}
+        <ul>
+          {% for item in completions.modules %}
+            <li><a href="{{ url_for('module', course_name=course_name, module_name=item) }}">{{ item }}</a></li>
+          {% endfor %}
+      {% endblock %}  
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 AI-Powered Education Platform. All rights reserved.</p>
+  </footer>
+</body>
+</html>

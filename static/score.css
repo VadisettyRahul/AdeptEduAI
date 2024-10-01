@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f1f2f6;
+}
+
+div.scorecard {
+  background-image: url("/static/result.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+div.scorecard div.scores {
+  backdrop-filter: blur(17px) saturate(200%);
+  -webkit-backdrop-filter: blur(17px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+  margin: 20px 0;
+  overflow-y: auto;
+}
+
+div.scores p.score {
+  font-size: 5rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+div.answers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+
+@media (max-width: 600px) and (min-width: 280px) {
+  div.scorecard {
+    height: 100dvh;
+  }
+
+  div.scorecard div.scores {
+    width: 90%;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  div.answers {
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #008CBA; /* Change as needed */
+  color: white; /* Change as needed */
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #007B9A; /* Darker version of the original color */
+}

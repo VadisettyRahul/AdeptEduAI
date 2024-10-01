@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="main">
+        <form action="http://localhost:5000/quiz" method="POST">
+            <h1>QUIZ</h1>
+            <div class="language">
+                <label for="language">What's the topics?</label>
+                <input type="text" name="language" id="language">
+            </div>
+            <div class="ques">
+                <label for="ques">How many questions?</label>
+                <input type="number" name="ques" value="">
+            </div>
+            <div class="choices">
+                <label for="choices">Enter number of choices</label>
+                <input type="number" name="choices" id="choices">
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
